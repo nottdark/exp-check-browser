@@ -7,12 +7,14 @@
   <meta name="description" content="app for check user agent">
 </head>
 <body>
-    <div style="text-align: center;">
-      <p>Hello World!!</p>
-    </div>
-
-
+    <div id="app2"></div><br>
+    User Agent:<hr>
+    <div id="app"></div><br><br>
+    <p>What is the name(s) of your browser?</p>
+    <button onclick="myFunction()">Try it</button>
   <script>
+    console.log('navigator.userAgent: ', navigator.userAgent);
+    document.getElementById('app').innerHTML = navigator.userAgent;
       // Opera 8.0+
     var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
 
@@ -47,7 +49,34 @@
     output += 'isEdge: ' + isEdge + '<br>';
     output += 'isEdgeChromium: ' + isEdgeChromium + '<br>';
     output += 'isBlink: ' + isBlink + '<br>';
-    document.body.innerHTML = output;
+    document.getElementById('app2').innerHTML = output;
+    
+    function myFunction() { 
+     if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
+    {
+        alert('Opera');
+    }
+    else if(navigator.userAgent.indexOf("Chrome") != -1 )
+    {
+        alert('Chrome');
+    }
+    else if(navigator.userAgent.indexOf("Safari") != -1)
+    {
+        alert('Safari');
+    }
+    else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    {
+         alert('Firefox');
+    }
+    else if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+    {
+      alert('IE'); 
+    }  
+    else 
+    {
+       alert('unknown');
+    }
+    }
   </script>
 </body>
 </html>
